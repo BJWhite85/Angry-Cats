@@ -1,0 +1,18 @@
+#root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.entire-scene {
+  height: 100%;
+}
+
+canvas {
+  background-color: black;
+  margin: 0;
+  height: 100%;
+}
