@@ -15,4 +15,14 @@ canvas {
   background-color: black;
   margin: 0;
   height: 100%;
+  width: 100%;
+}
+
+#livesContainer {
+  display: inline-flex;
+  gap: 20px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  z-index: 1;
 }
