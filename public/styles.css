@@ -1,10 +1,13 @@
-#root {
-  height: 100%;
-}
-
 html, body {
   margin: 0;
   height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 .entire-scene {
@@ -12,17 +15,98 @@ html, body {
 }
 
 canvas {
-  background-color: black;
-  margin: 0;
-  height: 100%;
-  width: 100%;
+  height: 800px;
 }
 
 #livesContainer {
   display: inline-flex;
-  gap: 20px;
+  margin: 0;
+  gap: 40px;
   position: relative;
-  top: 100px;
+  top: -775px;
+  left: 30px;
+  z-index: 1;
+}
+
+.life {
+  border: 4px solid whitesmoke;
+  border-radius: 50px;
+}
+
+.slider {
+  -webkit-appearance: slider-vertical;
+  position: fixed;
+  margin: 0;
+  top: 600px;
+  z-index: 1;
+}
+
+.slider2 {
+  -webkit-appearance: slider-vertical;
+  position: fixed;
+  margin: 0;
+  top: 600px;
   left: 100px;
   z-index: 1;
+}
+
+
+#playContainer{
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+#play {
+  margin: auto;
+  position: relative;
+  top: -180px;
+  z-index: 1;
+  height: 75px;
+  width: 150px;
+}
+
+#scoreContainer{
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+#score {
+  position: relative;
+  top: -880px;
+  font-size: 40px;
+  margin: auto;
+}
+
+#gameOver {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  max-height: 80%;
+  background-color: whitesmoke;
+  margin: auto;
+  padding: 0;
+  border: 2px solid green;
+  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 300; opacity: 1}
+}
+
+#Title {
+  font-size: 70px;
+  text-align: center;
+}
+
+#scoreNum {
+  font-size: 70px;
+  text-align: center;
+  margin-bottom: 50px;
 }
