@@ -17,12 +17,12 @@ function Plane(props) {
   const texture = useLoader(TextureLoader, 'textures/grass3.png');
   if (texture) {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(35,35);
+    texture.repeat.set(35, 35);
     texture.anisotropy = 16;
   }
   return (
     <mesh ref={ref}>
-      <planeGeometry args={[750, 750]} />
+      <planeGeometry args={[500, 500]} />
       <meshPhongMaterial attach="material" map={texture} />
     </mesh>
   )
@@ -33,7 +33,7 @@ let Testscore = 0
 function PhyBox(props) {
   const [ref, api] = useBox(() => ({
     onCollide: () => {
-      Testscore += 500;
+      Testscore += 50;
     },
     sleepSpeedLimit: 1,
     args: [5, 5, 5],
@@ -52,7 +52,7 @@ function PhyBox(props) {
       args={[5, 5, 5]}
       ref={ref}
       color={"brown"}>
-      <meshPhongMaterial attach="material" map={texture}/>
+      <meshPhongMaterial attach="material" map={texture} />
     </FIBER.Box>
   );
 }
@@ -67,7 +67,7 @@ const Slider = (props) => {
   }
   return (
 
-    <input type="range" min="900" max="3500" value={power} className="slider" id="myRange" onChange={adjustPower}/>
+    <input type="range" min="900" max="3500" value={power} className="slider" id="myRange" onChange={adjustPower} />
   )
 }
 
@@ -101,10 +101,10 @@ const App = () => {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [play, setPlay] = useState(false);
-  const [camera, setCamera] = useState({ position: [-30, 25, 0], near: 0.1, far: 400, fov: 85 })
+  const [camera, setCamera] = useState({ position: [-50, 30, 0], near: 0.1, far: 400, fov: 65 })
 
   const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const count2 = [5, 10, 15, 20, 25, 30];
+  const count2 = [5, 10, 15, 20];
 
 
   function playMusic() {
@@ -204,7 +204,8 @@ const App = () => {
     <div>
       <Canvas camera={camera} >
         <FIBER.OrbitControls />
-        <FIBER.Sky azimuth={1} />
+        {/* <FIBER.Sky azimuth={1} /> */}
+        <FIBER.Stars />
         <ambientLight intensity={0.2} />
         <pointLight position={[20, 10, 150]} />
         <pointLight position={[-200, 25, -250]} />
@@ -243,13 +244,60 @@ const App = () => {
               <PhyBox key={i + 1590} position={[num + 50, 12.5, -40]} />
             </>
           ))}
+          {count2.map((num, i) => (
+            <>
+              <PhyBox key={i + 2000} position={[num + 150, 2.5, -92]} />
+              <PhyBox key={i + 3000} position={[num + 150, 2.5, -86]} />
+              <PhyBox key={i + 4150} position={[num + 150, 2.5, -80]} />
+              <PhyBox key={i + 5230} position={[num + 150, 2.5, -74]} />
+              <PhyBox key={i + 6350} position={[num + 150, 7.5, -89]} />
+              <PhyBox key={i + 7350} position={[num + 150, 7.5, -83]} />
+              <PhyBox key={i + 8470} position={[num + 150, 7.5, -77]} />
+              <PhyBox key={i + 9590} position={[num + 150, 12.5, -86]} />
+              <PhyBox key={i + 10590} position={[num + 150, 12.5, -80]} />
+              <PhyBox key={i + 11590} position={[num + 150, 17.5, -83]} />
+            </>
+          ))}
+          {count2.map((num, i) => (
+            <>
+              <PhyBox key={i + 12000} position={[num + 150, 2.5, 92]} />
+              <PhyBox key={i + 13000} position={[num + 150, 2.5, 86]} />
+              <PhyBox key={i + 14150} position={[num + 150, 2.5, 80]} />
+              <PhyBox key={i + 15230} position={[num + 150, 2.5, 74]} />
+              <PhyBox key={i + 16350} position={[num + 150, 7.5, 89]} />
+              <PhyBox key={i + 17350} position={[num + 150, 7.5, 83]} />
+              <PhyBox key={i + 18470} position={[num + 150, 7.5, 77]} />
+              <PhyBox key={i + 19590} position={[num + 150, 12.5, 86]} />
+              <PhyBox key={i + 20590} position={[num + 150, 12.5, 80]} />
+              <PhyBox key={i + 21590} position={[num + 150, 17.5, 83]} />
+            </>
+          ))}
+          {count2.map((num, i) => (
+            <>
+              <PhyBox key={i + 22000} position={[num + 150, 2.5, -12]} />
+              <PhyBox key={i + 23000} position={[num + 150, 2.5, -6]} />
+              <PhyBox key={i + 24000} position={[num + 150, 2.5, 0]} />
+              <PhyBox key={i + 25150} position={[num + 150, 2.5, 6]} />
+              <PhyBox key={i + 26230} position={[num + 150, 2.5, 12]} />
+              <PhyBox key={i + 27350} position={[num + 150, 7.5, -9]} />
+              <PhyBox key={i + 28350} position={[num + 150, 7.5, -3]} />
+              <PhyBox key={i + 29470} position={[num + 150, 7.5, 3]} />
+              <PhyBox key={i + 30470} position={[num + 150, 7.5, 9]} />
+              <PhyBox key={i + 31590} position={[num + 150, 12.5, -6]} />
+              <PhyBox key={i + 32590} position={[num + 150, 12.5, 0]} />
+              <PhyBox key={i + 33590} position={[num + 150, 12.5, 6]} />
+              <PhyBox key={i + 34590} position={[num + 150, 17.5, -3]} />
+              <PhyBox key={i + 35590} position={[num + 150, 17.5, 3]} />
+              <PhyBox key={i + 36590} position={[num + 150, 22.5, 0]} />
+            </>
+          ))}
           <Plane />
           <CatModel position={[0, 1.5, 0]} />
         </Physics>
       </Canvas>
       <Slider />
       <SliderAngle />
-      <SliderDirection/>
+      <SliderDirection />
       <div id="livesContainer">
         {catLives.length > 0 && play ? catLives.map((element, i) => (
           <CatLives key={i} />)) : null}
@@ -259,6 +307,11 @@ const App = () => {
       </div>
       <Score score={Testscore} />
       {catLives.length === 0 ? <GameOver score={Testscore} /> : null}
+      <div id="lables">
+        <span id="powerlabel">Power</span>
+        <span id="anglelabel">Angle</span>
+        <span id="directionlabel">Direction</span>
+      </div>
     </div>
   );
 }
