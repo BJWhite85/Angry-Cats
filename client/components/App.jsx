@@ -14,10 +14,10 @@ import { useGLTF } from '@react-three/drei';
 // This function makes the ground
 function Plane(props) {
   const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }))
-  const texture = useLoader(TextureLoader, 'textures/grass.jpg');
+  const texture = useLoader(TextureLoader, 'textures/grass3.png');
   if (texture) {
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(10, 10);
+    texture.repeat.set(35,35);
     texture.anisotropy = 16;
   }
   return (
@@ -40,13 +40,19 @@ function PhyBox(props) {
     mass: .5,
     ...props
   }));
+  const texture = useLoader(TextureLoader, 'textures/crate2.png');
+  if (texture) {
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    //texture.repeat.set(1);
+    texture.anisotropy = 16;
+  }
 
   return (
     <FIBER.Box
       args={[5, 5, 5]}
       ref={ref}
-      color={'black'}>
-      <meshNormalMaterial />
+      color={"brown"}>
+      <meshPhongMaterial attach="material" map={texture}/>
     </FIBER.Box>
   );
 }
@@ -85,7 +91,7 @@ const SliderDirection = (props) => {
     setDirection(e.target.value)
   }
   return (
-    <input type="range" min="-1000" max="1000" value={direction} className="slider3" id="myRange3" onChange={adjustDirection} />
+    <input type="range" min="-1500" max="1500" value={direction} className="slider3" id="myRange3" onChange={adjustDirection} />
   )
 }
 
@@ -199,9 +205,9 @@ const App = () => {
       <Canvas camera={camera} >
         <FIBER.OrbitControls />
         <FIBER.Sky azimuth={1} />
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} />
-        <pointLight position={[0, 0, 0]} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[20, 10, 150]} />
+        <pointLight position={[-200, 25, -250]} />
         <Physics allowSleep={true} >
           {/* <FIBER.Cloud position={[2,9,2]}/> */}
           {/* {count.map((num, i) => (

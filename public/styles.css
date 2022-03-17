@@ -18,6 +18,13 @@ canvas {
   height: 800px;
 }
 
+@font-face {
+  font-family: 'kitty';
+  src: url('kitty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #livesContainer {
   display: inline-flex;
   margin: 0;
@@ -81,6 +88,7 @@ canvas {
 }
 
 #score {
+  font-family: 'kitty';
   position: relative;
   top: -880px;
   font-size: 40px;
@@ -89,14 +97,16 @@ canvas {
 
 #gameOver {
   position: fixed;
-  top: 25%;
-  left: 25%;
-  width: 50%;
+  top: 19%;
+  left: 19%;
+  width: 60%;
   max-height: 80%;
-  background-color: whitesmoke;
+  background-image: url("prints.jpeg");
+  background-color: #cccccc;
   margin: auto;
   padding: 0;
-  border: 2px solid green;
+  border: 6px solid rgb(6, 68, 6);
+  border-radius: 50px;
   box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 1s;
@@ -109,11 +119,13 @@ canvas {
 }
 
 #Title {
+  font-family: 'kitty';
   font-size: 70px;
   text-align: center;
 }
 
 #scoreNum {
+  font-family: 'kitty';
   font-size: 70px;
   text-align: center;
   margin-bottom: 50px;
